@@ -13,42 +13,42 @@ print("z : avance\nq : gauche\ns : reculer\nd : droite\ne/r : led\na : stop\nc :
 print("entre une lettre pour piloter le robot comme dans la description")
 
 continuer = True
-while continuer
+while continuer :
 
-lettre = input(">>")
+    lettre = input(">>")
 
 
-if lettre == "z":
-    spytank.avance(125)
-elif lettre == "q":
-    spytank.gauche(125)
-elif lettre == "s":
-    spytank.recule(-125)
-elif lettre == "d":
-    spytank.droite(125)
-elif lettre == "a":
-    spytank.stop()
+    if lettre == "z":
+        spytank.avance(125)
+    elif lettre == "q":
+        spytank.gauche(125)
+    elif lettre == "s":
+        spytank.recule(-125)
+    elif lettre == "d":
+        spytank.droite(125)
+    elif lettre == "a":
+        spytank.stop()
 
-elif lettre == "e":
-    spytank.led(0,1)
-    spytank.led(1,1)
-    spytank.led(2,1)
-    spytank.led(3,1)
+    elif lettre == "e":
+        spytank.led(0,1)
+        spytank.led(1,1)
+        spytank.led(2,1)
+        spytank.led(3,1)
 
-elif lettre == "r":
-    spytank.led(0,0)
-    spytank.led(1,0)
-    spytank.led(2,0)
-    spytank.led(3,0)
+    elif lettre == "r":
+        spytank.led(0,0)
+        spytank.led(1,0)
+        spytank.led(2,0)
+        spytank.led(3,0)
 
-elif lettre == "c":
-    spytank.exit()
+    elif lettre == "c":
+        spytank.exit()
 
-elif lettre == "a" :
-    spytank.stop()
+    elif lettre == "a" :
+        spytank.stop()
 
-elif lettre == "c" :
-    spytank.stop()
-    continuer =False
+    elif lettre == "c" :
+        spytank.stop()
+        continuer =False
 
 
