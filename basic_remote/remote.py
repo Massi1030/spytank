@@ -6,6 +6,7 @@
 # a: stop
 # c : exit
 
+import click
 import spytank
 import time
 
@@ -15,17 +16,19 @@ print("entre une lettre pour piloter le robot comme dans la description")
 continuer = True
 while continuer :
 
-    lettre = input(">>")
+    lettre = click.getchar()
+
+    vitesse = (255)
 
 
     if lettre == "z":
-        spytank.avance(125)
+        spytank.avance(vitesse)
     elif lettre == "q":
-        spytank.gauche(125)
+        spytank.gauche(vitesse)
     elif lettre == "s":
-        spytank.recule(-125)
+        spytank.recule(vitesse)
     elif lettre == "d":
-        spytank.droite(125)
+        spytank.droite(vitesse)
     elif lettre == "a":
         spytank.stop()
 
@@ -40,9 +43,6 @@ while continuer :
         spytank.led(1,0)
         spytank.led(2,0)
         spytank.led(3,0)
-
-    elif lettre == "c":
-        spytank.exit()
 
     elif lettre == "a" :
         spytank.stop()
