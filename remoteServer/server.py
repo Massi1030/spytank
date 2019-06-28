@@ -1,23 +1,29 @@
-# z: avancer
-#q : gauche
-# s : reculer
-# d : droite
-# e/r : led 1 ou 0
-# a: stop
-# c : exit
-
-import click
+import network
 import spytank
-import time
 
-print("z : avance\nq : gauche\ns : reculer\nd : droite\ne/r : led\na : stop\nc : exit")
-print("entre une lettre pour piloter le robot comme dans la description")
+
+
+ADDRESS="10.0.0.0113"
+PORT=1111
+
+socket = network.newServerSocket()
+socket.bind((ADDRESS,PORT))
 
 continuer = True
-while continuer :
+while continuer:
 
-    lettre = click.getchar()
+    socket.listen(10)
+    print("en ecoute...")
 
+    thread = network.newThread(socket.accept())
+    thread.start()
+
+    #notre communication
+
+    message = thread.clientsocket.recv(4096)
+    lettre = lettre.decode("utf-8")
+
+    print("message recu : ", lettre)
     vitesse = 255
 
 
@@ -51,4 +57,5 @@ while continuer :
         spytank.stop()
         continuer =False
 
+    thread.clientsocket.send("j'ai bien recu le message".encode())
 
